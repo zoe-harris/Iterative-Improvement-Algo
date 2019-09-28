@@ -17,8 +17,11 @@
             next = rand node from portfolio
             delta_E = next.change - current.change
 
-            if delta_E > 0:
+            # If e^delta_E / T is less than 1, we choose the next investment & deal with T
+            if (delta_E > 0) or (exp(delta_E / T) < 1):
                 next.investment += (current.investment * 0.1)
                 current.investment -= (current.investment * 0.1)
+
+
 
 """
