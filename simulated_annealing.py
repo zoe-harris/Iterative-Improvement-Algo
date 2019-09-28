@@ -26,6 +26,4 @@
                 next.investment += (current.investment * 0.1)
                 current.investment -= (current.investment * 0.1)
 
-
-
 """

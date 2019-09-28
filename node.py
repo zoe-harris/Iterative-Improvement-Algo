@@ -3,7 +3,9 @@
 # CSCE405 Artificial Intelligence
 
 
-def __init__(self, company, change, invested):
-    self.company = company
-    self.change = change
-    self.invested = invested
+class Node:
+
+    def __init__(self, company, change, invested):
+        self.company = company
+        self.change = change
+        self.invested = invested
