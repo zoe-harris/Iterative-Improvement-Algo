@@ -4,6 +4,7 @@
 
 from node import Node
 
+
 class Portfolio:
 
     def __init__(self):
@@ -19,3 +20,8 @@ class Portfolio:
             fitness += (node.invested - 10000)
 
         return fitness
+
+    def print_contents(self):
+
+        for s in self.stocks:
+            print(s.company + " ", end='')
