@@ -3,12 +3,17 @@
 # CSCE405 Artificial Intelligence
 from math import *
 import random
-
+from portfolio import Portfolio
+from node import Node
 
 class SimulatedAnnealing:
 
     def __init__(self, portfolio):
         self.portfolio = portfolio
+
+    def reinvest(self, next, current):
+        next.value += (current.value * 0.1)
+        current.value -= (current.value * 0.1)
 
     def simulated_annealing(self):
 
@@ -20,7 +25,7 @@ class SimulatedAnnealing:
         current = self.portfolio.investments[0]
 
         # Run simulated annealing until temperature reaches 0
-        for t in range(int(inf)):
+        for t in range(1, int(inf)):
 
             # Use schedule function to get value of T
             T = schedule(t)
@@ -38,5 +43,4 @@ class SimulatedAnnealing:
 
             # If (Delta E > 0) or if [(e^(Delta E) / T) < 1], choose the next investment
             if (delta_E > 0) or (exp(delta_E / T) < 1):
-                next.investment += (current.investment * 0.1)
-                current.investment -= (current.investment * 0.1)
+                self.reinvest(next, current)

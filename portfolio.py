@@ -17,11 +17,13 @@ class Portfolio:
         fitness = 0
 
         for node in self.investments:
-            fitness += (node.num_invested - 10000)
+            fitness += (node.value - 10000)
 
         return fitness
 
     def print_contents(self):
 
+        print("| ", end='')
+
         for s in self.investments:
-            print(s.company + ": $" + s.num_invested)
+            print(s.company + ": $" + str(s.value) + " | ", end='')
