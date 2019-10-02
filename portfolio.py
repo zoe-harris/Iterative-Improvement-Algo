@@ -8,20 +8,22 @@ from node import Node
 class Portfolio:
 
     def __init__(self):
-        self.stocks = []
+        self.investments = []
 
-    def add_stock(self, new_stock):
-        self.stocks.append(new_stock)
+    def add_stock(self, new_investment):
+        self.investments.append(new_investment)
 
     def fitness(self):
         fitness = 0
 
-        for node in self.stocks:
-            fitness += (node.invested - 10000)
+        for node in self.investments:
+            fitness += (node.value - 10000)
 
         return fitness
 
     def print_contents(self):
 
-        for s in self.stocks:
-            print(s.company + " ", end='')
+        print("| ", end='')
+
+        for s in self.investments:
+            print(s.company + ": $" + str(s.value) + " | ", end='')

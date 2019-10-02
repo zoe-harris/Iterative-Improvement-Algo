@@ -4,6 +4,7 @@
 
 from node import Node
 from portfolio import Portfolio
+from simulated_annealing import SimulatedAnnealing
 
 # Dictionary keys are DJIA companies, values are the change in value of
 # the companies' respective stocks
@@ -60,3 +61,9 @@ for i in user_list:
     hc_portfolio.add_stock(new_node)
     sa_portfolio.add_stock(new_node)
     user_portfolio.add_stock(new_node)
+
+print("--- STARTING PORTFOLIO ---")
+sa_obj = SimulatedAnnealing(sa_portfolio)
+sa_portfolio.print_contents()
+print("\n---SIMULATED ANNEALING PORTFOLIO---")
+sa_portfolio.print_contents()

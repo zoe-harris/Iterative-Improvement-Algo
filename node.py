@@ -5,7 +5,7 @@
 
 class Node:
 
-    def __init__(self, company, change, invested):
+    def __init__(self, company, percent_change, value):
         self.company = company
-        self.change = change
-        self.invested = invested
+        self.percent_change = percent_change
+        self.value = value
