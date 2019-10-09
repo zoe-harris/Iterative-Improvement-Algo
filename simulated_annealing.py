@@ -1,6 +1,7 @@
 # Zoe Harris & Rachel Lewis
 # Programming Assignment 2
 # CSCE405 Artificial Intelligence
+# Rachel Note: MAYBE copy nodes
 from math import *
 import random
 from portfolio import Portfolio
@@ -36,11 +37,14 @@ class SimulatedAnnealing:
 
             # next = random node from portfolio
             next_index = random.randrange(0, 10)
+            # Next node = random from all neighbors
+            # Make all 90 neighbors, put it in a list, randomly select. OR randomly index x & y -- faster
             next = self.portfolio.investments[next_index]
 
             # Calculate the value of Delta E
+            # Rachel Note: delta_E should compare the fitnesses. Randomly selected neighbor fitness - current fitness
             delta_E = next.percent_change - current.percent_change
 
             # If (Delta E > 0) or if [(e^(Delta E) / T) < 1], choose the next investment
-            if (delta_E > 0) or (exp(delta_E / T) < 1):
+            if (delta_E > 0) or random.random() < (exp(delta_E / T)):
                 self.reinvest(next, current)
