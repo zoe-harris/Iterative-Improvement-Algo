@@ -62,8 +62,10 @@ for i in user_list:
     sa_portfolio.add_stock(new_node)
     user_portfolio.add_stock(new_node)
 
-print("--- STARTING PORTFOLIO ---")
+
+print("Starting Porfolio:")
+user_portfolio.print_contents()
+print("\nSimulated Annealing Portfolio:")
 sa_obj = SimulatedAnnealing(sa_portfolio)
-sa_portfolio.print_contents()
-print("\n---SIMULATED ANNEALING PORTFOLIO---")
+sa_obj.simulated_annealing()
 sa_portfolio.print_contents()

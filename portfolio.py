@@ -17,13 +17,21 @@ class Portfolio:
         fitness = 0
 
         for node in self.investments:
-            fitness += (node.value - 10000)
+            fitness += (node.value * (node.percent_change * 0.01))
 
         return fitness
 
     def print_contents(self):
 
         print("| ", end='')
+        for i in range(0, 5):
+            s = self.investments[i]
+            print(f'{s.company}: ${s.value:.2f} | ', end='')
 
-        for s in self.investments:
-            print(s.company + ": $" + str(s.value) + " | ", end='')
+        print("\n| ", end='')
+        for i in range(5, 10):
+            s = self.investments[i]
+            print(f'{s.company}: ${s.value:.2f} | ', end='')
+
+        print()
+        print(f'The fitness of this portfolio is ${self.fitness():0.2f}')
