@@ -52,8 +52,7 @@ class SimulatedAnnealing:
 
             # next = random node from portfolio
             next_index = random.randrange(0, 10)
-            # Next node = random from all neighbors
-            # Make all 90 neighbors, put it in a list, randomly select. OR randomly index x & y -- faster
+
             next = self.portfolio.investments[next_index]
 
             # Calculate the value of Delta E
