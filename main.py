@@ -64,13 +64,18 @@ for i in user_list:
     user_portfolio.add_stock(new_node)
 
 
-print("Starting Porfolio:")
+# display investment mix as selected by user
+print("User Portfolio:")
 user_portfolio.print_contents()
+
+# display investment mix selected using hill climbing
 print("\nHill Climbing Portfolio:")
 hc_obj = HillClimbing(hc_portfolio)
 hc_obj.hill_climbing()
 hc_portfolio = hc_obj.best_portfolio
 hc_portfolio.print_contents()
+
+# display investment mix selected using simulated annealing
 print("\nSimulated Annealing Portfolio:")
 sa_obj = SimulatedAnnealing(sa_portfolio)
 sa_obj.simulated_annealing()
