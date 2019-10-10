@@ -5,6 +5,7 @@
 from node import Node
 from portfolio import Portfolio
 from simulated_annealing import SimulatedAnnealing
+from hill_climbing import HillClimbing
 
 # Dictionary keys are DJIA companies, values are the change in value of
 # the companies' respective stocks
@@ -65,7 +66,12 @@ for i in user_list:
 
 print("Starting Porfolio:")
 user_portfolio.print_contents()
-print("\nSimulated Annealing Portfolio:")
+print("\nHill Climbing Portfolio:")
+hc_obj = HillClimbing(hc_portfolio)
+hc_obj.hill_climbing()
+hc_portfolio = hc_obj.best_portfolio
+hc_portfolio.print_contents()
+"""print("\nSimulated Annealing Portfolio:")
 sa_obj = SimulatedAnnealing(sa_portfolio)
 sa_obj.simulated_annealing()
-sa_portfolio.print_contents()
+sa_portfolio.print_contents()"""
