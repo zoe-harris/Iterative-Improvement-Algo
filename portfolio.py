@@ -17,7 +17,7 @@ class Portfolio:
         fitness = 0
 
         for node in self.investments:
-            fitness += (node.value * (node.percent_change * 0.01))
+            fitness += (node.value + (node.value * (node.percent_change * .01)))
 
         return fitness
 

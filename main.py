@@ -71,7 +71,7 @@ hc_obj = HillClimbing(hc_portfolio)
 hc_obj.hill_climbing()
 hc_portfolio = hc_obj.best_portfolio
 hc_portfolio.print_contents()
-"""print("\nSimulated Annealing Portfolio:")
+print("\nSimulated Annealing Portfolio:")
 sa_obj = SimulatedAnnealing(sa_portfolio)
 sa_obj.simulated_annealing()
-sa_portfolio.print_contents()"""
+sa_portfolio.print_contents()
