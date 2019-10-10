@@ -28,8 +28,7 @@ class HillClimbing:
     def random_restart(self):
         money = 100000
         # The for-loop ensures each value of the portfolio is changed. A random number is rolled for each investment to
-        # determine how much money it receives. At the end, the left over money is divided evenly and split amongst
-        # the investments
+        # determine how much money it receives. At the end, the left over money is slotted into the last company
         for x in range(len(self.portfolio.investments)):
             if x == 9:
                 self.portfolio.investments[x].value = money
@@ -41,14 +40,6 @@ class HillClimbing:
                 self.portfolio.investments[x].value = value
                 money -= value
 
-        if money != 0:
-            if money < 1000:
-                val = random.randint(0, 9)
-                self.portfolio.investments[val].value += money
-            else:
-                val = money / 10
-                for x in range(len(self.portfolio.investments)):
-                    self.portfolio.investments[x].value += val
         self.fitness = self.portfolio.fitness()
 
     def hill_climbing(self):
